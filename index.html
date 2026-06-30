@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trade Counter Picks | Plumbing & Trade Fixture Guide for Builders</title>
+  <meta name="description" content="Trade Counter Picks — curated, code-compliant plumbing and trade fixtures for US builders and contractors. Specs you can trust, sourced from established suppliers." />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --steel:      #1E3D52;
+      --steel-lt:   #2F5872;
+      --steel-pale: #E8EEF1;
+      --copper:     #B8693A;
+      --copper-lt:  #D4895C;
+      --copper-pale:#F7EAE0;
+      --cream:      #F7F5F2;
+      --band:       #EBE7E1;
+      --border:     #DCD5CB;
+      --charcoal:   #26282B;
+      --muted:      #686460;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── DISCLOSURE STRIP ── */
+    .disclosure-strip {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .disclosure-strip strong { color: var(--copper-lt); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 3px solid var(--copper);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Archivo', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--steel);
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo .mark {
+      width: 8px; height: 24px;
+      background: var(--copper);
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--steel);
+      text-decoration: none;
+      padding: 6px 12px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--steel-pale); color: var(--copper); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--steel);
+      color: var(--white);
+      padding: 56px 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Archivo', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--copper-lt);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 2px;
+      background: var(--copper-lt);
+    }
+    .hero h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(34px, 6vw, 56px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+    .hero h1 span { color: var(--copper-lt); }
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 17px);
+      color: rgba(255,255,255,0.72);
+      max-width: 540px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+
+    /* spec strip — signature element */
+    .spec-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-top: 12px;
+    }
+    .spec-strip > div {
+      padding: 18px 20px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .spec-strip > div:last-child { border-right: none; }
+    .spec-strip .num {
+      font-family: 'Archivo', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--copper-lt);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .spec-strip .label {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .spec-strip { grid-template-columns: repeat(2, 1fr); }
+      .spec-strip > div { border-bottom: 1px solid rgba(255,255,255,0.15); }
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 50px 20px; }
+    .section-inner { max-width: 980px; margin: 0 auto; }
+    .section-alt { background: var(--band); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--charcoal);
+    }
+    .section-header-text h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .section-header-text p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+      max-width: 460px;
+    }
+    .section-cat-code {
+      font-family: 'Archivo', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--copper);
+      background: var(--copper-pale);
+      padding: 4px 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── PRODUCT GRID — spec sheet cards ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 6px 24px rgba(30,61,82,0.14);
+      transform: translateY(-2px);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: var(--band);
+      border-bottom: 3px solid var(--copper);
+    }
+    .card-img-placeholder {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--steel-pale) 0%, #DCE5E9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      border-bottom: 3px solid var(--copper);
+    }
+
+    .card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+    .card-tag {
+      font-family: 'Archivo', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--copper);
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--steel);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .card-desc { font-size: 13.5px; color: var(--charcoal); line-height: 1.6; margin-bottom: 14px; }
+
+    /* spec rows — signature detail */
+    .spec-rows {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row .k {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+    }
+    .spec-row .v { color: var(--charcoal); font-weight: 600; text-align: right; }
+
+    .btn-view {
+      display: block;
+      background: var(--steel);
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 13px 18px;
+      transition: background 0.18s;
+      margin-top: auto;
+    }
+    .btn-view:hover { background: var(--copper); }
+    .btn-view::after { content: ' →'; }
+
+    /* ── WHY STRIP ── */
+    .why-strip { background: var(--charcoal); color: var(--white); padding: 36px 24px; }
+    .why-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0;
+    }
+    .why-item {
+      padding: 0 24px;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+    .why-item:first-child { border-left: none; padding-left: 0; }
+    @media (max-width: 700px) {
+      .why-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.15); padding: 16px 0 0; }
+      .why-item:first-child { border-top: none; padding-top: 0; }
+    }
+    .why-item strong {
+      font-family: 'Archivo', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--copper-lt);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .why-item span { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+    /* ── DISCLAIMER BAND ── */
+    .disclaimer-band {
+      background: var(--steel-pale);
+      border-top: 3px solid var(--steel);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--steel);
+    }
+    .disclaimer-band strong { font-weight: 700; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--steel);
+      color: rgba(255,255,255,0.6);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .footer-logo {
+      font-family: 'Archivo', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+    .footer-logo span { color: var(--copper-lt); }
+    .footer-affil { color: var(--copper-lt); font-weight: 600; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--copper-lt); text-decoration: underline; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.10); margin: 18px auto; max-width: 360px; }
+  </style>
+</head>
+<body>
+
+  <div class="disclosure-strip">
+    <strong>Affiliate Disclosure:</strong> This site contains affiliate links to retail and supplier partners — at no extra cost to you.
+  </div>
+
+  <nav>
+    <a class="nav-logo" href="#"><span class="mark"></span>Trade Counter Picks</a>
+    <ul class="nav-links">
+      <li><a href="#plumbing">Plumbing</a></li>
+      <li><a href="#fixtures">Fixtures</a></li>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#lighting">Lighting</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Spec Guide for Builders & Contractors</div>
+      <h1>Trade-Grade Fixtures, <span>Specified Right.</span></h1>
+      <p class="hero-sub">A working reference of plumbing, fixture, and hardware picks — sourced from established suppliers, sized to code, and selected for jobs that need to hold up past the punch list.</p>
+      <div class="spec-strip">
+        <div><div class="num">100%</div><div class="label">Code-Referenced Specs</div></div>
+        <div><div class="num">4</div><div class="label">Trade Categories</div></div>
+        <div><div class="num">US</div><div class="label">Residential Standard</div></div>
+        <div><div class="num">0</div><div class="label">Markup to You</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Strip -->
+  <div class="why-strip">
+    <div class="why-inner">
+      <div class="why-item">
+        <strong>Spec-Checked</strong>
+        <span>Every listing includes dimensions, materials, and compliance notes — not just a photo and a price.</span>
+      </div>
+      <div class="why-item">
+        <strong>Built for Trade Use</strong>
+        <span>Selected for jobsite durability and repeat installs, not one-off retail purchases.</span>
+      </div>
+      <div class="why-item">
+        <strong>Code-Aware</strong>
+        <span>Where it matters, we note US building code relevance — smoke/CO, GFCI, water efficiency.</span>
+      </div>
+      <div class="why-item">
+        <strong>Supplier-Sourced</strong>
+        <span>Links route through established retail and trade suppliers, including Ferguson.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLUMBING -->
+  <section class="section" id="plumbing">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-header-text">
+          <h2>Plumbing</h2>
+          <p>Tubs, faucets, and water fixtures specified for standard US rough-in dimensions.</p>
+        </div>
+        <span class="section-cat-code">PLB · 01</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🛁</div>
+          <div class="card-body">
+            <span class="card-tag">Bathtub</span>
+            <h3 class="card-title">American Standard Cadet 5-Foot Bathtub</h3>
+            <p class="card-desc">Fiberglass-reinforced acrylic construction holds cast-iron rigidity at a fraction of the weight — a meaningful advantage on second-floor installs where subfloor load capacity is limited. The 60 x 32-inch footprint matches the standard US alcove opening, so it drops into existing framing without modification.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Material</span><span class="v">Fiberglass-Reinforced Acrylic</span></div>
+              <div class="spec-row"><span class="k">Dimensions</span><span class="v">60" x 32" Alcove</span></div>
+              <div class="spec-row"><span class="k">Feature</span><span class="v">Lumbar-Support Backrest</span></div>
+            </div>
+            <a href="https://amzn.to/4enUNyr" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🚿</div>
+          <div class="card-body">
+            <span class="card-tag">Tub Faucet</span>
+            <h3 class="card-title">Wowkk Waterfall Tub Filler — Matte Black</h3>
+            <p class="card-desc">Solid brass body with a matte black PVD finish resists corrosion well beyond chrome-plated alternatives. Floor-mount design needs no deck drilling or wall penetration, so it pairs with most alcove or freestanding tub installs without added rough-in work.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Material</span><span class="v">Solid Brass / PVD Finish</span></div>
+              <div class="spec-row"><span class="k">Mount Type</span><span class="v">Floor Mount, Freestanding</span></div>
+              <div class="spec-row"><span class="k">Includes</span><span class="v">Handheld Shower</span></div>
+            </div>
+            <a href="https://amzn.to/4eD3V0V" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🪞</div>
+          <div class="card-body">
+            <span class="card-tag">Vanity Cabinet</span>
+            <h3 class="card-title">ELEVACHIC 30" Floating Vanity with Sink</h3>
+            <p class="card-desc">Ships pre-assembled with sink, LED strip, and soft-close drawers included — cutting multi-vendor coordination time on bathroom builds. Floating wall mount clears the floor for easier cleaning and a larger feel in compact bathrooms.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Width</span><span class="v">30"</span></div>
+              <div class="spec-row"><span class="k">Mount Type</span><span class="v">Wall-Mounted, Floating</span></div>
+              <div class="spec-row"><span class="k">Finish</span><span class="v">Matte Black, Fluted</span></div>
+            </div>
+            <a href="https://amzn.to/4aLMY3m" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIXTURES / LIGHTING -->
+  <section class="section section-alt" id="lighting">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-header-text">
+          <h2>Bathroom Lighting</h2>
+          <p>Vanity and task lighting rated for standard US junction box mounting.</p>
+        </div>
+        <span class="section-cat-code">LTG · 02</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="card-img-placeholder">💡</div>
+          <div class="card-body">
+            <span class="card-tag">Vanity Light</span>
+            <h3 class="card-title">3-Light Modern Bathroom Vanity Fixture</h3>
+            <p class="card-desc">Mounts to a standard junction box with no extra hardware — a direct swap for outdated single-bulb fixtures. Open-frame design spreads light evenly across a 30–36-inch mirror, avoiding the harsh shadows single-point fixtures cast.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Bulb Type</span><span class="v">E26, up to 60W</span></div>
+              <div class="spec-row"><span class="k">Mount</span><span class="v">Standard Junction Box</span></div>
+              <div class="spec-row"><span class="k">Finish</span><span class="v">Chrome</span></div>
+            </div>
+            <a href="https://amzn.to/3QnUb2Q" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🔲</div>
+          <div class="card-body">
+            <span class="card-tag">Vanity Light</span>
+            <h3 class="card-title">3-Light Square Design Vanity Light</h3>
+            <p class="card-desc">Square-cage fixture in matte black, the steel frame resists humidity better than painted finishes. Each shade rotates independently for ambient or task-focused light, adaptable to different bathroom layouts.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Shade Type</span><span class="v">Adjustable Square Cage</span></div>
+              <div class="spec-row"><span class="k">Finish</span><span class="v">Matte Black, Steel</span></div>
+              <div class="spec-row"><span class="k">Lights</span><span class="v">3</span></div>
+            </div>
+            <a href="https://amzn.to/4xTplQq" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🔆</div>
+          <div class="card-body">
+            <span class="card-tag">LED Vanity Light</span>
+            <h3 class="card-title">Melucee 4-Light LED Bathroom Vanity Light</h3>
+            <p class="card-desc">Integrated LED rated for 50,000 hours removes recurring bulb replacement from the maintenance list. Delivers 2400 lumens across a 30-inch bar — strong, even output for grooming tasks — with a dimmable driver for standard single-pole dimmers.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Output</span><span class="v">2400 Lumens, 24W</span></div>
+              <div class="spec-row"><span class="k">Rated Life</span><span class="v">50,000 Hours</span></div>
+              <div class="spec-row"><span class="k">Dimmable</span><span class="v">Yes</span></div>
+            </div>
+            <a href="https://amzn.to/4eVc3dE" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">💎</div>
+          <div class="card-body">
+            <span class="card-tag">Crystal Vanity Light</span>
+            <h3 class="card-title">Modern Crystal 3-Light Vanity Light — Chrome</h3>
+            <p class="card-desc">K9 crystal accents refract light more effectively than glass or acrylic shades, lending a premium look to master bath builds. Chrome finish coordinates with the two most common US faucet hardware families, avoiding finish mismatches.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Accent</span><span class="v">K9 Crystal</span></div>
+              <div class="spec-row"><span class="k">Finish</span><span class="v">Chrome</span></div>
+              <div class="spec-row"><span class="k">Mount</span><span class="v">Single or Dual Box</span></div>
+            </div>
+            <a href="https://amzn.to/3Sy0DVB" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-img-placeholder">🏮</div>
+          <div class="card-body">
+            <span class="card-tag">Outdoor Lighting</span>
+            <h3 class="card-title">Outdoor Wall Light Fixtures — Waterproof</h3>
+            <p class="card-desc">IP65-rated against rain, snow, and humidity, with a die-cast aluminum housing that resists rust well beyond plastic-bodied alternatives. Built for entries, garages, and covered patios across all US climate zones.</p>
+            <div class="spec-rows">
+              <div class="spec-row"><span class="k">Rating</span><span class="v">IP65 Waterproof</span></div>
+              <div class="spec-row"><span class="k">Material</span><span class="v">Die-Cast Aluminum</span></div>
+              <div class="spec-row"><span class="k">Bulb Type</span><span class="v">E26 Compatible</span></div>
+            </div>
+            <a href="https://amzn.to/4besMHv" target="_blank" rel="noopener sponsored" class="btn-view">View Product</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HARDWARE / FIXTURES placeholder categories for future Ferguson expansion -->
+  <section class="section" id="fixtures">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-header-text">
+          <h2>Fixtures</h2>
+          <p>Sinks, toilets, and supply-line fixtures — sourced from trade suppliers including Ferguson.</p>
+        </div>
+        <span class="section-cat-code">FIX · 03</span>
+      </div>
+      <p style="color: var(--muted); font-size: 14px; padding: 20px 0;">New listings in this category are added as products are reviewed and confirmed. Check back soon for trade-grade fixture picks.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="hardware">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-header-text">
+          <h2>Hardware</h2>
+          <p>Door, cabinet, and structural hardware for renovation and new-build projects.</p>
+        </div>
+        <span class="section-cat-code">HDW · 04</span>
+      </div>
+      <p style="color: var(--muted); font-size: 14px; padding: 20px 0;">New listings in this category are added as products are reviewed and confirmed. Check back soon for trade-grade hardware picks.</p>
+    </div>
+  </section>
+
+  <!-- Disclaimer Band -->
+  <div class="disclaimer-band">
+    <strong>Pricing & Availability Notice:</strong> Product prices and availability are accurate as of the date of our last review and are subject to change. Always verify the current price and spec on the retailer's site before purchasing.
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">Trade<span>Counter</span>Picks</span>
+    <div class="footer-affil">This site participates in affiliate marketing programs, including Impact and partner brand programs.</div>
+    <hr class="footer-divider" />
+    <a href="privacy-policy.html">Privacy Policy</a><br><br>
+    Trade Counter Picks is an independent affiliate guide and is not operated by or affiliated with Ferguson Enterprises, LLC.<br><br>
+    &copy; 2026 Trade Counter Picks. All rights reserved. | United States
+  </footer>
+
+</body>
+</html>
